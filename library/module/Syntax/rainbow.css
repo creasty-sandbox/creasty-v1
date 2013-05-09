@@ -1,0 +1,77 @@
+
+.syntax{ position: relative; overflow-x: auto; }
+pre .syntax{ white-space: pre; word-break: none; }
+pre code.syntax{ padding: 0; }
+
+.syntax table,
+.syntax table td,
+.syntax table tr,
+.syntax table tbody{ padding: 0; width: auto; }
+
+/* .syntax div{ font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace; } */
+
+.syntax .syntax-line{
+	padding: 6px 10px;
+	min-width: 2ex;
+	background: #fbfbfb;
+	border-right: 1px solid #eee;
+	text-align: right;
+	color: #bebebe;
+	text-shadow: 0 1px 0 #fff;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	-ms-border-radius: 4px 0 0 4px;
+	-o-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+	width: auto;
+	word-break: none !important;
+}
+.syntax .syntax-code{ padding: 6px 0; width: 100%; }
+.syntax .syntax-code div{
+	display: block;
+	text-shadow: 0 1px 0 #fff;
+	padding: 0 6px;
+}
+.syntax .syntax-highlight{ background-color: #eee; }
+
+/*	Coloring
+-----------------------------------------------*/
+.syntax .comment{ color: #93a1a1; }
+.syntax .support{ color: #0086B3; }
+.syntax .tag,
+.syntax .tag-name{ color: #1e347b; }
+.syntax .keyword,
+.syntax .support.property,
+.syntax .support.namespace,
+.syntax .vendor-prefix,
+.syntax .css-value{ color: #333; }
+.syntax .storage.function,
+.syntax .keyword{ color: #1e347b; }
+.syntax .support.function,
+.syntax .support.method,
+.syntax .entity.name.function,
+.syntax .function.call{ color: #d14; }
+.syntax .css-property{ color: #718a44; }
+.syntax .entity.name.pseudo{ color: #f0898f; }
+.syntax .support.important{ color: #da4632; }
+.syntax .entity.name.id{ color: #5f61a8; }
+.syntax .entity.name.class{ color: #ceb77b; }
+.syntax .constant.numeric,
+.syntax .keyword.unit{ color: #195f91; }
+.syntax .attribute{ color: #0086B3; }
+.syntax .selector,
+.syntax .variable{ color: #3f4c25; }
+.syntax .string,
+.syntax .support.value{	color: #900; }
+.syntax .regexp,
+.syntax .color{ color: #8856d2; }
+
+.syntax .source.php.embedded{
+	color: #cc7832;
+	background-color: rgba(204, 120, 50, .1);
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-o-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+}

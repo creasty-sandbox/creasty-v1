@@ -1,0 +1,340 @@
+
+/*=== Logo
+==============================================================================================*/
+#creasty-logo {
+	position: absolute;
+	top: 46px;
+	left: 10px;
+	margin: 0;
+	padding: 0;
+	z-index: 100;
+
+	@include respond(320px) {
+		left: 15px;
+		top: 36px;
+	}
+
+	a {
+		@extend .text-replace;
+
+		display: block;
+		width: 161px;
+		height: 38px;
+		background: url(images/logo/CreastyLogo.png) 0 0 no-repeat;
+		opacity: 1;
+		@include transition(opacity .5s);
+
+		@include retina {
+			background-image: url(images/logo/CreastyLogo@2x.png);
+			@include background-size(161px 76px);
+		}
+
+		&:hover {
+			opacity: .5;
+		}
+	}
+}
+
+
+/*=== Site Menu
+==============================================================================================*/
+#gnav-site-menu {
+	a {
+		position: relative;
+		padding: 20px;
+		color: #afcdd7;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 1em;
+		letter-spacing: 1px;
+		text-shadow: 0 1px 0 rgba(#000, .4);
+		vertical-align: middle;
+		white-space: nowrap;
+		@include transition(color .5s);
+
+		&:hover {
+			color: #fff;
+		}
+
+		#globalheader &.link-here,
+		#globalheader &.link-here:hover {
+			color: $black;
+			text-shadow: 0 1px 0 rgba(#fff, .4);
+		}
+	}
+
+	#globalheader & {
+		position: absolute;
+		top: 55px;
+		right: -10px;
+		z-index: 2;
+		margin: 0;
+		padding: 0;
+
+		@include respond(768px) {
+			position: relative;
+			top: 0;
+			right: 0;
+			margin: 0 -10px;
+			padding: 110px 0 30px;
+		}
+		@include respond(580px) {
+			display: none;
+		}
+	}
+}
+
+
+/*	Mobile Menu
+-----------------------------------------------*/
+#pageslide {
+	body & {
+		background: $black url(images/patterns/noise-2.png) 0 0 repeat;
+		width: 200px;
+		padding: 0;
+		@include box-shadow(inset 1px 0 3px rgba(#000, .5));
+
+		@include retina {
+			background-image: url(images/patterns/noise-2@2x.png);
+			@include background-size(200px 200px);
+		}
+	}
+	#gnav-site-menu {
+		border-top: 1px solid rgba(#000, .3);
+		border-bottom: 1px solid rgba(#fff, .05);
+
+		li {
+			width: 100%;
+			padding: 0 20px;
+			border-top: 1px solid rgba(#fff, .05);
+			border-bottom: 1px solid rgba(#000, .3);
+			@include box-sizing(border-box);
+		}
+		a {
+			display: block;
+			padding: 10px 0;
+			font-size: 16px;
+			text-transform: none;
+			font-weight: normal;
+			color: #fff;
+
+			&:hover {
+				color: #5f9baf;
+				text-shadow: 0 1px 0 rgba(#000, .4);
+			}
+			&.link-here,
+			&.link-here:hover {
+				color: #5f9baf;
+			}
+		}
+	}
+}
+
+#gnav-toggle {
+	display: none;
+	z-index: 9999;
+	position: absolute;
+	top: 51px;
+	right: 10px;
+	width: 26px;
+	height: 26px;
+	background: #fff;
+	font-family: 'CreastyPicto';
+	font-size: 20px;
+	line-height: 26px;
+	vertical-align: middle;
+	text-align: center;
+	color: $main;
+	text-shadow: none;
+	@include border-radius(3px);
+	@include box-shadow(0 1px 0 rgba(#000, .4));
+
+	@include respond(580px) {
+		&.show {
+			display: block;
+		}
+	}
+	@include respond(320px) {
+		right: 15px;
+		top: 41px;
+	}
+}
+
+
+/*=== Global Footer
+==============================================================================================*/
+#globalfooter {
+	position: relative;
+	z-index: 4;
+	background: $black url(images/background/bg_texture_3d.png) repeat;
+	background:
+		url(images/gnav/footer_zigzag.png) repeat-x,
+		url(images/gnav/footer_stitch.png) 0 100% repeat-x,
+		$black url(images/background/bg_texture_3d.png) repeat;
+	color: $gray;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 12px;
+	margin-top: 25px;
+	text-shadow: 0 1px 0 rgba(#000, .4);
+
+	@include respond(320px) {
+		width: 100%;
+		padding: 10px 0;
+	}
+	@include retina {
+		background-image:
+			url(images/gnav/footer_zigzag@2x.png),
+			url(images/gnav/footer_stitch@2x.png),
+			url(images/background/bg_texture_3d@2x.png);
+
+		@include background-size(
+			9px 5px,
+			17px 6px,
+			350px 350px
+		);
+	}
+
+	.container {
+		padding: 45px 0 35px;
+	}
+	p {
+		text-align: center;
+		margin: 0;
+		cursor: default;
+	}
+	a {
+		color: $gray;
+
+		&:hover {
+			color: $main;
+		}
+	}
+}
+
+/*	Networks
+-----------------------------------------------*/
+#networks {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 30px;
+
+	li {
+		text-align: center;
+		padding: 0;
+		width: 20%;
+		float: left;
+
+		@include respond(400px) {
+			width: 50%;
+
+			&:nth-child(3) {
+				width: 100%;
+				margin: 5px 0;
+			}
+		}
+	}
+	a {
+		display: block;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		letter-spacing: 1px;
+
+		&:before {
+			display: block;
+			position: relative;
+			top: 0;
+			padding: 0;
+			margin-bottom: 5px;
+			width: 100%;
+			font-family: "CreastyPicto";
+			text-transform: none;
+			font-size: 52px;
+			line-height: 52px;
+			@include transition(all .3s);
+
+			@include respond(480px) {
+				font-size: 38px;
+				line-height: 38px;
+			}
+			@include respond(400px) {
+				margin-bottom: 1px;
+			}
+		}
+		&:hover:before {
+			top: -3px;
+		}
+
+		@include respond(480px) {
+			font-size: 12px;
+		}
+	}
+}
+
+/*	Powered-by
+-----------------------------------------------*/
+#powered-by {
+	margin: 30px auto 0;
+	width: 262px;
+
+	@include respond(480px) {
+		display: none;
+	}
+
+	&:before {
+		content: "S";
+		display: block;
+		position: relative;
+		font-family: "CreastyPicto";
+		text-align: center;
+		margin-bottom: 30px;
+		left: -7px;
+	}
+	li {
+		position: relative;
+		width: 27px;
+		height: 29px;
+		margin-left: 20px;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	a {
+		@extend .text-replace;
+
+		display: block;
+		width: 27px;
+		height: 29px;
+		background: url(images/gnav/powered-by.png) 0 0 no-repeat;
+
+		@include retina {
+			background-image: url(images/gnav/powered-by@2x.png);
+			@include background-size(235px 58px);
+		}
+	}
+
+	@mixin powered-by-icon($offset) {
+		background-position: #{$offset} 0;
+	}
+
+	.wordpress {
+		@include powered-by-icon(0);
+	}
+	.jquery {
+		@include powered-by-icon(-45px);
+	}
+	.html5 {
+		@include powered-by-icon(-89px);
+	}
+	.css3 {
+		@include powered-by-icon(-133px);
+	}
+	.responsive {
+		@include powered-by-icon(-171px);
+	}
+	.apple {
+		@include powered-by-icon(-210px);
+	}
+}

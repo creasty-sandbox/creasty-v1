@@ -1,0 +1,32 @@
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: true;
+
+$experimental-support-for-mozilla: true;
+$experimental-support-for-webkit: true;
+$experimental-support-for-opera: true;
+$experimental-support-for-microsoft: true;
+//$experimental-support-for-pie: true;
+
+$pie-behavior: url(/library/htc/PIE.htc);
+
+
+// Responsive Breakpoints
+// - 1200
+// - 1024
+// - 768
+// - (520)
+// - 480
+// - 320
+
+$family: unquote("'Open Sans', Arial, Helvetica, 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo");
+
+$main: #5f9baf;
+$sub: #88af5f;
+
+$black: #3d3d3d;
+$gray: #666;
+
+$grid-columns: 12;
+$grid-width: 5.982905983%;
+$grid-gutter: 2.564102564%;
+$grid-pixel-default: 1100px;

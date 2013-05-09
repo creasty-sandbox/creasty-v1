@@ -1,0 +1,88 @@
+
+/*=== Setup
+==============================================================================================*/
+	.dyn-promo{
+		position: relative;
+		zoom: 1;
+		overflow: hidden;
+		text-align: center;
+	}
+	.dyn-promo:after{
+		content: "\0020";
+		display: block;
+		visibility: hidden;
+		height: 0.1px;
+		font-size: 0.1em;
+		line-height: 0;
+		clear: both;
+	}
+
+	.promo-content{
+		position: relative;
+		width: 1000%; /* view fix */
+		height: 100%;
+		text-align: left;
+		overflow: hidden;
+	}
+	.promo-content .promo-slide{
+		position: relative;
+		overflow: hidden;
+		float: left;
+	}
+	.promo-content .show{
+
+	}
+	.promo-back,
+	.promo-next{
+		position: absolute;
+		display: block;
+		cursor: pointer;
+		top: 0;
+	}
+	.promo-back{left: 0;}
+	.promo-next{right: 0;}
+	.promo-indicator{
+		position: absolute;
+		bottom: 20px;
+		margin: auto;
+		width: 100%;
+	}
+	.promo-indicator span{
+		display: inline-block;
+		margin: 0 2px;
+		cursor: pointer;
+	}
+	.promo-indicator span.active{
+		cursor: default;
+	}
+	.promo-slide>img{
+		z-index: 1;
+	}
+	.promo-caption{
+		z-index: 2;
+	}
+	
+/*=== Skining
+==============================================================================================*/
+	.promo-indicator span{
+		width: 13px;
+		height: 13px;
+		background: url(indicator.png) no-repeat center 0;
+	}
+	.promo-indicator span:hover{
+		background-position: center -13px;
+	}
+	.promo-indicator span.active{
+		background-position: center -26px;
+	}
+	.promo-back,
+	.promo-next{
+		width: 60px;
+		height: 100%;
+	}
+	.promo-back:hover{
+		background: url(back.png) no-repeat center center;
+	}
+	.promo-next:hover{
+		background: url(next.png) no-repeat center center;
+	}

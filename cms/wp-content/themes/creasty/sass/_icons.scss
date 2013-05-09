@@ -1,0 +1,253 @@
+
+/*=== Icon Fonts
+==============================================================================================*/
+@include font-face(
+	"CreastyPicto",
+	font-files(
+		"creastypicto/creastypicto.woff",
+		"creastypicto/creastypicto.ttf",
+		"creastypicto/creastypicto.svg"
+	),
+	"creastypicto/creastypicto.eot"
+);
+
+/*	97 icons
+-----------------------------------------------*/
+@mixin icon-define($class, $char) {
+	.icon-#{$class}:before { content: $char !important; }
+}
+@include icon-define(alert,           "!");
+@include icon-define(arrow-left,      "[");
+@include icon-define(arrow-right,     "]");
+@include icon-define(arrow-up,        "{");
+@include icon-define(arrow-down,      "}");
+@include icon-define(arrowhead-right, ">");
+@include icon-define(arrowhead-down,  "<");
+@include icon-define(bad,             "h");
+@include icon-define(bargraph,        "5");
+@include icon-define(book,            "B");
+@include icon-define(book-open,       "b");
+@include icon-define(calender,        "\\");
+@include icon-define(call,            "~");
+@include icon-define(camera,          "v");
+@include icon-define(card,            "%");
+@include icon-define(cart,            "$");
+@include icon-define(check,           "3");
+@include icon-define(check-c,         "2");
+@include icon-define(clip,            "J");
+@include icon-define(clock,           "t");
+@include icon-define(cloud,           "C");
+@include icon-define(comment,         "w");
+@include icon-define(compass,         "c");
+@include icon-define(computer,        "A");
+@include icon-define(config,          "x");
+@include icon-define(dashboard,       ",");
+@include icon-define(delete,          "*");
+@include icon-define(delete-c,        "D");
+@include icon-define(document,        "F");
+@include icon-define(download,        "4");
+@include icon-define(edit,            "p");
+@include icon-define(enroll,          ":");
+@include icon-define(evernote,        "n");
+@include icon-define(expand,          "`");
+@include icon-define(export,          "X");
+@include icon-define(external,        "e");
+@include icon-define(facebook,        "6");
+@include icon-define(file,            "o");
+@include icon-define(flag,            "^");
+@include icon-define(flickr,          "r");
+@include icon-define(gear,            "y");
+@include icon-define(git,             "\a3");
+@include icon-define(good,            "g");
+@include icon-define(gplus,           "1");
+@include icon-define(hatena,          "\a1");
+@include icon-define(help,            "?");
+@include icon-define(home,            "H");
+@include icon-define(inbox,           "I");
+@include icon-define(info,            "i");
+@include icon-define(instagram,       "\a4");
+@include icon-define(key,             "K");
+@include icon-define(launch,          "|");
+@include icon-define(link,            "j");
+@include icon-define(list,            "l");
+@include icon-define(locked,          "(");
+@include icon-define(logout,          "Z");
+@include icon-define(look,            "E");
+@include icon-define(love,            "k");
+@include icon-define(mail,            "M");
+@include icon-define(mail2,           "L");
+@include icon-define(mark,            "@");
+@include icon-define(mic,             "u");
+@include icon-define(mobile,          "a");
+@include icon-define(music,           "m");
+@include icon-define(news,            "N");
+@include icon-define(picture,         "P");
+@include icon-define(pin,             ".");
+@include icon-define(play,            "9");
+@include icon-define(plus,            "&");
+@include icon-define(plus-c,          "+");
+@include icon-define(power,           "Q");
+@include icon-define(print,           "/");
+@include icon-define(quote,           "\"");
+@include icon-define(reload,          "1");
+@include icon-define(replay,          "0");
+@include icon-define(rss,             "f");
+@include icon-define(rss-b,           "7");
+@include icon-define(search,          "s");
+@include icon-define(server,          "Y");
+@include icon-define(share,           "R");
+@include icon-define(shuffle,         ";");
+@include icon-define(star,            "S");
+@include icon-define(star-c,          "8");
+@include icon-define(subtract,        "_");
+@include icon-define(subtract-c,      "-");
+@include icon-define(sound,           "=");
+@include icon-define(tag,             "z");
+@include icon-define(tumblr,          "\a2");
+@include icon-define(trash,           "#");
+@include icon-define(twitter,         "T");
+@include icon-define(unlocked,        ")");
+@include icon-define(user,            "U");
+@include icon-define(video,           "V");
+@include icon-define(wifi,            "'");
+@include icon-define(work,            "O");
+@include icon-define(world,           "G");
+@include icon-define(write,           "W");
+
+
+/*	.icon
+-----------------------------------------------*/
+%icon {
+	@include inline-block;
+	width: 1em;
+	height: 1em;
+	padding-right: 5px;
+	text-align: center;
+	font-family: "CreastyPicto";
+	font-weight: normal !important;
+	font-size: 1em;
+	line-height: 1;
+	vertical-align: baseline;
+	text-transform: none !important;
+}
+
+.icon,
+[class*="icon-"] {
+	&:before {
+		@extend %icon;
+	}
+	&.icon-big:before {
+		font-size: 1.667em;
+		vertical-align: -.15ex;
+	}
+}
+
+ul li.icon {
+	list-style: none;
+	*list-style: disc;
+
+	&:before {
+		position: absolute;
+		display: block;
+		width: 1em !important;
+		left: 0 !important;
+		line-height: inherit;
+		text-align: center !important;
+	}
+
+	li.icon:before {
+		left: 4.5ex;
+	}
+}
+
+ul.compact li.icon {
+	&:before {
+		position: relative;
+		left: 0 !important;
+		float: left;
+		margin-top: 0;
+		bottom: -.15ex;
+	}
+	&.icon-big {
+		line-height: 1.667em;
+	}
+}
+
+
+/*=== Icon Replace
+==============================================================================================*/
+i.icon,
+i[class*="icon-"] {
+	@include inline-block;
+	position: relative;
+	padding: 0;
+	width: 1em;
+	height: 1em;
+	font-size: 1.667em;
+	margin-top: -0.15em;
+	font-weight: normal !important;
+	vertical-align: middle;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: default;
+
+	&:before {
+		display: block;
+		position: relative;
+		width: 1em;
+		height: 1em;
+		font-family: "CreastyPicto";
+		text-align: center;
+	}
+}
+
+
+/*=== Icon Images
+==============================================================================================*/
+.icon-image {
+	zoom: 1;
+	padding-left: 20px !important;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-position-y: top;
+}
+
+a.icon-image:not([className~=icon]),
+span.icon-image:not([className~=icon]) {
+	display: inline-block;
+	vertical-align: bottom;
+}
+li.icon-image,
+p.icon-image {
+	background-position: left center;
+}
+
+
+/*=== Icon Image Replace
+==============================================================================================*/
+.icon-image-replace {
+	@include inline-block;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 24px;
+	min-height: 16px;
+	padding: 0 !important;
+	text-align: left;
+	color: transparent;
+	font: 1px/0 monospace !important;
+	word-spacing: -2px;
+	letter-spacing: -2px;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+button.icon-image-replace {
+	outline: none;
+	padding: 0;
+	border-style: none;
+	background-color: transparent;
+}
+a.icon-image-replace,
+span.icon-image-replace {
+	vertical-align: bottom;
+}

@@ -1,0 +1,307 @@
+
+/*=== Body
+==============================================================================================*/
+body {
+	background: #f0f0f0 url(images/background/bg_texture_f0.png) 0 0 repeat;
+	font: 13px/1.8 $family;
+	color: #888;
+	text-shadow: 0 1px 0 #fff;
+	text-align: center;
+	min-height: 100%;
+	-webkit-font-smoothing: antialiased;
+
+	//@include respond(480px) {
+	//	font-size: 14px;
+	//}
+	@include retina {
+		background-image: url(images/background/bg_texture_f0@2x.png);
+		@include background-size(350px 350px);
+	}
+
+	> * { text-align: left; }
+}
+
+/*	Text selection
+-----------------------------------------------*/
+::-moz-selection {
+	background: rgba(0, 163, 217, .3);
+	text-shadow: none !important;
+}
+::selection {
+	background: rgba(0, 163, 217, .3);
+	text-shadow: none !important;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+input,
+select,
+textarea { -webkit-tap-highlight-color: rgba(0, 163, 217, .3); }
+
+
+/*=== Band
+==============================================================================================*/
+#band {
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	background: $main url(images/background/bg_texture_5f9baf.png) repeat;
+	background:
+		url(images/gnav/header_ribbon.png) repeat-x,
+		$main url(images/background/bg_texture_5f9baf.png) repeat;
+	margin-bottom: 30px;
+	@include box-shadow(0 5px 0 rgba(0, 0, 0, .08), inset 0 -5px 0 rgba(0, 0, 0, .06));
+
+	@include retina {
+		background-image:
+			url(images/gnav/header_ribbon@2x.png),
+			url(images/background/bg_texture_5f9baf@2x.png);
+
+		@include background-size(
+			17px 15px,
+			350px 350px
+		);
+	}
+}
+#globalheader {
+	min-height: 120px;
+	@include respond(320px) {
+		min-height: 100px;
+	}
+}
+#document {
+	padding: 15px 0 40px;
+
+	@include respond(320px) {
+		padding: 0 0 20px;
+	}
+}
+
+
+/*=== Layout
+==============================================================================================*/
+.container {
+	position: relative;
+	margin: 0 auto;
+	width: 1100px;
+	text-align: left;
+	@extend .clear-after;
+
+	@include respond(1150px) {
+		width: 95%;
+	}
+	@include respond(320px) {
+		width: auto;
+		padding: 0 5px;
+	}
+}
+
+.content {
+	position: relative;
+	z-index: 1;
+	margin-bottom: 25px;
+	@extend .clear-after;
+}
+
+.content-box {
+	color: #555;
+	text-shadow: none;
+	padding: 34px;
+	background-color: #fff;
+	*border: 1px solid #ccc;
+	@include border-radius(5px);
+	@include box-shadow(0 1px 2px rgba(0, 0, 0, .3), 0 0 0 1px rgba(0, 0, 0, .15));
+	-pie-box-shadow: 0 0 0 1px rgba(0, 0, 0, .15);
+	@include pie;
+
+	@include respond(768px) {
+		padding: 20px !important;
+	}
+	@include respond(320px) {
+		padding: 10px !important;
+	}
+}
+.content-ground {
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+
+/*=== Hero
+==============================================================================================*/
+#hero {
+	margin: 0 -10px 30px;
+
+	img {
+		width: 100% !important;
+		height: auto !important;
+		@include border-radius(5px);
+		@include pie;
+	}
+
+	.content-box & {
+		position: relative;
+		margin: -34px -34px 30px;
+		padding-bottom: 9px;
+		background: url(images/elements/promo/shadow.png) no-repeat bottom center;
+
+		@include respond(768px) {
+			margin: -20px -20px 30px;
+		}
+		@include respond(320px) {
+			margin: -10px -10px 30px;
+			overflow: hidden;
+		}
+
+		img {
+			background: #3d3d3d;
+			@include border-radius(5px 5px 0 0);
+
+			@include respond(320px) {
+				margin: 0 -50%;
+				max-width: none !important;
+				width: 200% !important;
+			}
+		}
+	}
+}
+
+
+/*=== Side Navigation
+==============================================================================================*/
+#side-body {
+	@extend %sidenav-max-768;
+
+	float: left;
+	width: grid-span-px(9);
+
+	@include respond(1150px) {
+		width: grid-span(9);
+	}
+	@include respond(768px) {
+		margin-bottom: 20px;
+	}
+}
+#side-nav {
+	@extend %sidenav-max-768;
+
+	float: right;
+	width: grid-span-px(3);
+
+	@include respond(1150px) {
+		width: grid-span(3);
+	}
+}
+
+%sidenav-max-768 {
+	@include respond(768px) {
+		float: none;
+		display: block;
+		width: auto;
+	}
+}
+
+
+/*=== Breadcrumb
+==============================================================================================*/
+#breadcrumb {
+	position: relative;
+	margin: 0 0 10px 5px;
+	padding: 0;
+
+	@include respond(320px) {
+		margin-left: 10px;
+	}
+
+	li {
+		margin: 0;
+
+		a {
+			padding: 3px 5px;
+			color: #afcdd7;
+			text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+			font-size: 12px;
+			@include transition(color .5s);
+
+			&:after { content: "\0020/"; }
+			&:hover { color: #fff; text-decoration: none; }
+		}
+	}
+}
+
+
+/*=== Pagenation
+==============================================================================================*/
+#page-navigation {
+	width: 100%;
+
+	ul { margin: 20px 10px 0; }
+	li { margin-right: 4px; }
+	.ellipsis { line-height: 28px; }
+}
+
+
+/*=== CTA: Start New Project
+==============================================================================================*/
+#start-new-project {
+	display: block;
+	position: relative;
+	width: 240px;
+	height: 240px;
+	margin: 80px auto;
+	background: $main;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	text-shadow: none;
+	@include border-radius(50%);
+	@include transition(all .3s);
+	@include pie;
+
+	&:hover {
+		background: $sub;
+		@include transform(scale(1.05));
+
+		div {
+			@include transform(scale(0.9523809524));
+		}
+	}
+
+	div {
+		display: block;
+		width: 240px;
+		height: 240px;
+		@include transition(all .3s);
+
+		&:before{
+			content: 'S';
+			font-family: 'CreastyPicto';
+			display: block;
+			width: 1em;
+			margin: 0 auto 35px;
+			padding-top: 60px;
+			line-height: 1;
+		}
+		&:after {
+			content: '';
+			display: block;
+			margin: 40px auto -40px;
+			width: 30%;
+			height: 1px;
+			background: #fff;
+		}
+	}
+}
+
+
+/*=== Old Browser Warning
+==============================================================================================*/
+#old-browser {
+	padding: 10px;
+	background: #fcf8e3;
+	border: solid #c09853;
+	border-width: 4px 0;
+	color: #c09853;
+	font-size: 14px;
+}
+

@@ -1,0 +1,70 @@
+
+/*=== Table
+==============================================================================================*/
+	table{font-size: 1em;border-collapse: collapse;margin-bottom: 1em;}
+	table caption{padding-bottom: 0.5em;}
+	
+	table tbody th{text-align: left;}
+	table tbody tr{background-color: #fff;}
+	table.stripe-v tbody tr:nth-child(even),
+	table.stripe-h tbody td:nth-child(even){background-color: #f3f7fb;}
+	
+	table td{line-height: 1.35;}
+	table td, 
+	table th{padding: .35em 2ex;border-bottom: 1px solid #ddd;}
+	
+	table thead th,
+	table .headerBlock th{
+		background: #f4f4f4;
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #bbb;
+		padding-top: .5em;
+		color: #000;
+		font-weight: bold;
+		text-shadow: #fff 0 1px 0;
+	}
+
+/*=== .data
+==============================================================================================*/
+	table.data{
+		background-color: #fff;
+		border-spacing: 1px;
+		border-collapse: separate;
+		border: none;
+	}
+	
+	.data tbody tr{background-color: #f3f3f3;}
+	.data.stripe-v tbody tr:nth-child(even),
+	.data.stripe-h tbody td:nth-child(even){background-color: #eee;}
+	.data td, 
+	.data th{border: none;}
+	
+	.data .headerBlock th,
+	.data thead th{
+		text-transform: uppercase;
+		background: #999;
+		border: none;
+		font-weight: normal;
+		color: #fff;
+		text-shadow: none;
+	}
+
+/*=== Icon
+==============================================================================================*/
+	td.yes,
+	td.no,
+	td.partial,
+	td.full{
+		text-indent: -99999em;
+		overflow: hidden;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+	}
+	td.yes{background-image: url(/identity/images/elements/table/yes.png);}
+	td.no{background-image: url(/identity/images/elements/table/no.png);}
+	td.partial{background-image: url(/identity/images/elements/table/partial.png);}
+	td.full{background-image: url(/identity/images/elements/table/full.png);}
+	
+/*=== Text
+==============================================================================================*/
+	td.price{text-align: right;}

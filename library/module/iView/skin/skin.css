@@ -1,0 +1,243 @@
+.dyn-slider {
+	display: block;
+	position: relative;
+	width: 100%;
+	margin: 40px auto;
+	overflow: hidden;
+}
+.iviewSlider {
+	display: block;
+	overflow: hidden;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.iview-bullets .iview-controlNav {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 20px;
+}
+.iview-bullets .iview-controlNav a,
+.iview-directionNav a {
+	text-indent: 110%;
+	overflow: hidden;
+	text-wrap: none;
+}
+
+
+/*	Directional Nav
+-----------------------------------------------*/
+.iview-directionNav {
+	position: absolute;
+	top: 50%;
+	margin-top: -39px;
+	z-index: 9;
+	width: 100%;
+}
+.iview-directionNav a {
+	display: block;
+	width: 38px;
+	height: 79px;
+	background-image: url(paddles.png);
+	cursor: pointer;
+	-webkit-transition: left .3s, right .3s;
+	-moz-transition: left .3s, right .3s;
+	-o-transition: left .3s, right .3s;
+	transition: left .3s, right .3s;
+}
+
+.iview-nextNav {
+	right: -38px;
+	background-position: 100% 0;
+}
+.iview-prevNav {
+	left: -38px;
+	background-position: 0 0;
+}
+.iview-hover .iview-nextNav {
+	right: 20px;
+}
+.iview-hover .iview-prevNav {
+	left: 20px;
+}
+
+/*	Bullets
+-----------------------------------------------*/
+.iview-bullets .iview-controlNav .iview-items ul {
+	text-align: center;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.iview-bullets .iview-controlNav .iview-items ul li{
+	display: inline;
+	float: none;
+	padding: 0px;
+	margin: 0 4px;
+	line-height: 0px;
+}
+.iview-bullets .iview-controlNav a.iview-control {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	padding: 0;
+	width: 10px;
+	height: 10px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, .4);
+	-webkit-box-shadow: 0 0 0 1px #000;
+	-moz-box-shadow: 0 0 0 1px #000;
+	-o-box-shadow: 0 0 0 1px #000;
+	box-shadow: 0 0 0 1px #000;
+	-webkit-transition: background .3s;
+	-moz-transition: background .3s;
+	-o-transition: background .3s;
+	transition: background .3s;
+}
+.iview-bullets .iview-controlNav a.iview-control.active {
+	background: #fff;
+}
+
+/*	Thumb
+-----------------------------------------------*/
+.dyn-slider.iview-thumbs {
+	padding-bottom: 58px;
+}
+.iview-thumbs .iview-controlNav {
+	position: relative;
+	bottom: 0;
+	height: 48px;
+	text-align: center;
+}
+.iview-thumbs .iview-controlNav .iview-items {
+	display: block;
+	padding: 0px 20px;
+}
+
+.iview-thumbs .iview-controlNav a img {
+	height: 30px;
+	border: #000 1px solid;
+	margin: 7px 7px 0px 0px;
+	border-radius: 2px;
+}
+.iview-thumbs .iview-controlNav a.active img {
+	border-color: #999;
+}
+
+/*	Preloader
+-----------------------------------------------*/
+#iview-preloader {
+	border: #666 1px solid;
+	width: 150px
+}
+
+#iview-preloader div {
+	background: #666;
+}
+
+/*	Tooltip
+-----------------------------------------------*/
+#iview-tooltip {
+	display: none;
+	position: absolute;
+	background: rgba(0, 0, 0, .5);
+	width: 124px;
+	height: 84px;
+	bottom: 30px;
+	padding: 3px;
+	z-index: 100;
+}
+
+#iview-tooltip .holder {
+	display: block;
+	width: 124px;
+	height: 84px;
+	overflow: hidden;
+}
+
+#iview-tooltip .holder .container {
+	display: block;
+	width: 4000px;
+}
+
+#iview-tooltip .holder .container div {
+	float: left;
+	display: block;
+	overflow: hidden;
+	width: 124px;
+	height: 84px;
+	left: -50%;
+	text-align: center;
+}
+
+#iview-tooltip .holder .container div img {
+	height: 84px;
+	margin: 0 auto;
+}
+
+/*	Caption
+-----------------------------------------------*/
+.iview-caption {
+	background: rgba(0, 0, 0, .75);
+	color: #fff;
+	padding: 10px 15px;
+	font-size: 12px;
+	text-shadow: 1px 1px 0 #000;
+}
+
+.iview-caption.caption1 {
+	font-size: 36px;
+	font-weight: bold;
+	height: 45px;
+}
+
+.iview-caption.caption2 {
+	background: #00b4ff;
+	font-size: 36px;
+	font-weight: bold;
+	text-shadow: none;
+}
+
+.iview-caption.caption3 {
+	background: #FFF;
+	color: #000;
+	font-size: 26px;
+	text-shadow: none;
+}
+
+.iview-caption.caption4 {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.iview-caption.caption5 {
+	background: #c4302b;
+	box-shadow: rgba(0, 0, 0, 0.7) 10px 10px 15px 0px;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: none;
+}
+
+.iview-caption.caption6 {
+	font-size: 18px;
+}
+
+.iview-caption.caption7 {
+	text-align: left;
+	font-size: 11px;
+	color: #888;
+	border-radius: 0px;
+}
+.iview-caption.caption7 div {
+	line-height: 200%;
+}
+.iview-caption.caption7 h3 {
+	margin-bottom: 20px;
+	color: #FFF;
+}

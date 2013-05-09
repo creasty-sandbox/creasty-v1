@@ -1,0 +1,63 @@
+
+.dyn-collapse{
+	margin-bottom: 15px;
+	overflow: hidden;
+	outline: none;
+	-moz-outline: none;
+	border: none;
+}
+.collapse-content{
+	position: relative;
+	display: none;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
+	padding-top: 1em;
+	height: auto;
+}
+.collapse-content.show{
+	display: block;
+}
+
+.collapse-title{
+	margin: 0;
+	margin-bottom: 1px;
+	padding: 5px;
+	cursor: pointer;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	color: #000;
+	font-size: 1em;
+	border: 1px solid #dfdfdf;
+	text-shadow: #fff 0 1px 0;
+	background: #ececec;
+	background: -moz-linear-gradient(#fff,#ececec);
+	background: -webkit-linear-gradient(#fff,#ececec);
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ececec));
+	background: -o-linear-gradient(#fff,#ececec);
+	background: -ms-linear-gradient(#fff,#ececec);
+	background: linear-gradient(#fff,#ececec);
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-o-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+}
+.collapse-title span{
+	color: #555;
+	font-size: .917em;
+	display: block;
+}
+.collapse-title.active{/* cursor: default; */}
+.collapse-title.active,
+.collapse-title:hover{
+	border-color: #ccc;
+	background: #ddd;
+	background: -moz-linear-gradient(#eee,#ddd);
+	background: -webkit-linear-gradient(#eee,#ddd);
+	background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+	background: -o-linear-gradient(#eee,#ddd);
+	background: -ms-linear-gradient(#eee,#ddd);
+	background: linear-gradient(#eee,#ddd);
+}
+

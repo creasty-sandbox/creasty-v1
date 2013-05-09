@@ -1,0 +1,67 @@
+
+/*=== Setup
+==============================================================================================*/
+	.dyn-carousel{
+		position: relative;
+		zoom: 1;
+	}
+	.dyn-carousel:after{
+		content: "\0020";
+		display: block;
+		visibility: hidden;
+		height: 0.1px;
+		font-size: 0.1em;
+		line-height: 0;
+		clear: both;
+	}
+	.carousel-wrap2{
+		position: relative;
+		overflow: hidden;
+	}
+	.carousel-wrap{
+		width: 1000%; /* view fix */
+		text-align: left;
+		position: relative;
+	}
+	.carousel-content{
+		position: relative;
+		overflow: hidden;
+		float: left;
+	}
+	
+	.carousel-back,
+	.carousel-next{
+		position: absolute !important;
+		display: block;
+		cursor: pointer;
+		top: 0;
+	}
+	.carousel-back{left: 0;}
+	.carousel-next{right: 0;}
+
+/*=== Skining
+==============================================================================================*/
+	.dyn-carousel{
+		margin-bottom: 15px;
+	}
+	.carousel-wrap{
+		margin: 0;
+	}
+	.carousel-content{
+		height: auto;
+		margin: 0;
+	}
+	
+	.carousel-back,
+	.carousel-next{
+		width: 14px;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-color: #eee;
+	}
+	.carousel-back{ left: -14px; background-image: url(back.png);}
+	.carousel-next{ right: -14px; background-image: url(next.png);}
+	
+	.carousel-back:hover,
+	.carousel-next:hover{background-color: #ddd;}

@@ -1,0 +1,74 @@
+.carousel-wrapper {
+	position: relative;
+	margin: 0 0 1.5em;
+	padding: 0 26px 20px;
+}
+.carousel-wrapper .carousel-items {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+	z-index: 1;
+}
+.carousel-wrapper .carousel-items:after {
+	display: block;
+	clear: both;
+	overflow: hidden;
+}
+.carousel-wrapper li {
+	margin: 0;
+	padding: 0;
+	display: block;
+	float: left;
+}
+
+.carousel-prev,
+.carousel-next {
+	display: block;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	z-index: 101;
+	width: 26px;
+}
+.carousel-prev:before,
+.carousel-next:before {
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin: -13px 0 0;
+	width: 26px;
+	height: 26px;
+	font-family: "CreastyPicto";
+	font-size: 26px;
+	text-align: center;
+	line-height: 26px;
+}
+.carousel-prev { left: 0; }
+.carousel-next { right: 0; }
+.carousel-prev:before { content: "["; }
+.carousel-next:before { content: "]"; }
+
+.carousel-pager {
+	display: block;
+	position: absolute !important;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+}
+.carousel-pager span {
+	padding: 0 5px;
+	color: #aaa;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 18px;
+	line-height: 1;
+	-webkit-transition: color .2s;
+	-moz-transition: color .2s;
+	-o-transition: color .2s;
+	transition: color .2s;
+}
+.carousel-pager span:hover,
+.carousel-pager span.selected { color: #666; }

@@ -1,0 +1,67 @@
+/*! 
+ * Flipper CSS
+ * 
+ * @author ykiwng
+ */
+
+.dyn-flipper{	
+	position: relative;
+	z-index: 1;
+	visibility: hidden;
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-ms-perspective: 800px;
+	-o-perspective: 800px;
+	perspective: 800px;
+}
+.dyn-flipper.init{ visibility: visible; }
+.dyn-flipper .flipper-front,
+.dyn-flipper .flipper-back{
+	z-index: 2;
+	width: 100%;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: -webkit-transform .8s, opacity .8s;
+	-moz-transition: -moz-transform .8s, opacity .8s;
+	-ms-transition: -ms-transform .8s, opacity .8s;
+	-o-transition: -o-transform .8s, opacity .8s;
+	transition: transform .8s, opacity .8s;
+}
+.dyn-flipper .flipper-back{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 0;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.dyn-flipper.flipped .flipper-front{	
+	opacity: 0;
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+.dyn-flipper.flipped .flipper-back{
+	opacity: 1;
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	-o-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+

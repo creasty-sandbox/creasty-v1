@@ -1,0 +1,838 @@
+
+/*=== List
+==============================================================================================*/
+ul,
+ol,
+dl {
+	position: relative;
+	font-size: 1em;
+	word-spacing: -2ex;
+	letter-spacing: -2ex;
+}
+dt,
+dd,
+li {
+	word-spacing: normal;
+	letter-spacing: normal;
+}
+ul,
+ol {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-left: 3ex;
+	overflow: visible;
+}
+ul {
+	list-style: outside disc;
+}
+ol {
+	list-style: outside decimal;
+
+	ol {
+		margin-left: 0.5ex;
+	}
+}
+
+li {
+	padding-bottom: 0.5em;
+
+	ol,
+	ul {
+		margin-top: 0;
+		margin-bottom: 0.3ex;
+	}
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+}
+dl,
+dd {
+	margin-bottom: 1.5em;
+}
+dd {
+	margin-left: 16px;
+}
+
+
+/*=== Cool list
+==============================================================================================*/
+ul.list {
+	list-style: none;
+	*list-style: disc;
+}
+ol.list {
+	counter-reset: li;
+	list-style: none;
+	*list-style: decimal;
+}
+
+ul.list li,
+ol.list li {
+	&:before {
+		position: absolute;
+		display: block;
+		width: 3ex;
+		text-align: right;
+		left: -1ex;
+		color: $main;
+	}
+
+	li:before {
+		left: 4.5ex;
+	}
+}
+
+ul.list li:before { content: "\25cf"; }
+ol.list li:before {
+	content: counter(li) ".";
+	counter-increment: li;
+	font-weight: bold;
+}
+
+dl.list {
+	@extend .clear-after;
+
+	position: relative;
+
+	ul,
+	ol {
+		margin: 0;
+	}
+	li {
+		line-height: 1.5em;
+		padding-bottom: 0;
+	}
+
+	dt {
+		float: left;
+		margin: 0 10px 5px 0;
+		font-weight: normal;
+		color: #000;
+
+		@include respond(520px) {
+			// start h5
+			display: inline-block;
+			*display: inline;
+			zoom: 1;
+			color: $black;
+			font-size: 13px;
+			line-height: 1.5;
+			text-transform: uppercase;
+			letter-spacing: .2ex;
+			font-weight: bold;
+			margin-bottom: .5em;
+			padding-bottom: .55em;
+			border-bottom: 2px solid #222;
+			// end h5
+			float: none !important;
+			margin-right: 0 !important;
+		}
+	}
+	dd {
+		margin: 0 0 5px 100px;
+
+		@include respond(520px) {
+			margin-left: 0 !important;
+		}
+	}
+}
+
+@each $list in 80, 150 {
+	dl.list-#{$list} dd {
+		margin-left: #{$list}px;
+	}
+}
+
+
+/*=== Comma Separated List
+==============================================================================================*/
+ul.comma {
+	list-style: none;
+	margin-top: 0;
+	padding-left: 0;
+	word-spacing: 0;
+	letter-spacing: 0;
+
+	li {
+		display: inline;
+		padding-bottom: 0;
+
+		&:after {
+			content: ", ";
+		}
+		&:last-child:after {
+			content: "";
+		}
+	}
+}
+
+
+/*=== Link List
+==============================================================================================*/
+.link-list {
+	text-align: left;
+	list-style: none;
+	margin: 0 0 1em;
+	padding: 0;
+
+	> li,
+	> dt {
+		padding: 0.15em 0 0.2em;
+	}
+	> dd {
+		padding-left: 1.25ex;
+	}
+}
+
+
+/*=== Tiny Menu (ul.compact.menu.tiny)
+==============================================================================================*/
+ul.tiny {
+	margin-bottom: .5em;
+
+	li {
+		color: #888;
+		margin-right: 1em;
+		cursor: default;
+		@include transition(color .2s);
+
+		@include respond(320px) {
+			padding: 0 0 5px;
+			display: block;
+			float: none;
+		}
+
+		&:hover {
+			color: #555;
+		}
+
+		&[class*="icon-"]:before {
+			line-height: 1;
+		}
+
+		a {
+			color: #888;
+			&:hover {
+				color: #555;
+			}
+		}
+	}
+}
+
+
+/*=== Level Bar
+==============================================================================================*/
+.levelbar {
+	margin: 0 0 5px !important;
+	padding: 0 !important;
+	line-height: 1.4;
+	background: #ddd;
+	background: rgba(0, 0, 0, .05);
+	@include border-radius(3px);
+	@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .2));
+	@include pie;
+
+	span {
+		display: block;
+		padding: 4px 8px;
+		color: #fff;
+		text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+		background: $main;
+		@include background($main linear-gradient(#69a5b7, #5691a7));
+		@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .3));
+		@include border-radius(3px);
+		@include box-sizing(border-box);
+		@include pie;
+	}
+}
+
+@for $level from 1 through 10 {
+	.level-#{$level} span { width: $level * 10%; }
+}
+
+
+/*=== Border
+==============================================================================================*/
+hr {
+	border: 0;
+	height: 0;
+	margin: 1em 0 1.5em;
+
+	.content-box & {
+		border-top: 1px solid #ccc;
+	}
+	.content-ground & {
+		margin: 4em 0 3em;
+		height: 0;
+		border-top: 1px solid #d7d7d7;
+		border-top: 1px solid rgba(#000, .1);
+		border-bottom: 1px solid #fff;
+	}
+
+	&.flush-lr {
+		margin-top: 30px;
+		margin-bottom: 30px;
+		border-top-style: dashed;
+	}
+}
+
+
+/*=== Images
+==============================================================================================*/
+img {
+	@extend %fluid-image;
+
+	display: block;
+	@include border-radius(3px);
+}
+
+/*	Thumbnail
+-----------------------------------------------*/
+img.thumb,
+a.thumb img {
+	margin: 1px;
+	padding: 4px;
+	vertical-align: middle;
+	background-color: #fff;
+	@include box-sizing(border-box);
+	@include box-shadow(0 1px 3px rgba(0, 0, 0, .5), 0 0 0 1px rgba(0, 0, 0, .15));
+	-pie-box-shadow: 0 0 0 1px rgba(0, 0, 0, .15) !important;
+	@include pie;
+}
+img.thumb:hover,
+a.thumb:hover img {
+	@include box-shadow(0 1px 3px rgba(0, 0, 0, .7), 0 0 0 1px rgba(0, 0, 0, .15));
+	@include pie;
+}
+a.thumb span.more {
+	display: block;
+	margin-left: 100px;
+}
+a.block.thumb {
+	@extend %fluid-image;
+}
+
+/*	Circled
+-----------------------------------------------*/
+img.circle,
+.circle img {
+	border: 4px solid rgba(0, 150, 219, .4);
+	@include border-radius(50%);
+	@include transition(border-color .2s);
+
+	&:hover {
+		border-color: rgba(0, 150, 219, .6);
+	}
+}
+
+
+/*	Positioning
+-----------------------------------------------*/
+img.alignleft {
+	float: left;
+	margin: 2px 20px 16px 0;
+}
+img.alignright {
+	float: right;
+	margin: 2px 0 16px 20px;
+}
+img.aligncenter {
+	margin: 1em auto;
+}
+
+@mixin flush-class($margin) {
+	.flush-t { margin-top: $margin; }
+	.flush-b { margin-bottom: $margin; }
+	.flush-l { margin-left: $margin; }
+	.flush-r { margin-right: $margin; }
+	.flush-lr { margin-left: $margin; margin-right: $margin; }
+	.flush-tlr { margin-top: $margin; margin-left: $margin; margin-right: $margin; }
+	.flush-blr { margin-bottom: $margin; margin-left: $margin; margin-right: $margin; }
+}
+
+@include flush-class(-34px);
+
+@include respond(768px) {
+	@include flush-class(-20px);
+}
+@include respond(320px) {
+	@include flush-class(-10px);
+}
+
+/*	Resizing
+-----------------------------------------------*/
+@include respond(480px) {
+	img.scale70-lt480,
+	.scale70-lt480 img {
+		max-width: 70%;
+	}
+}
+
+
+/*=== Fluid Embed
+==============================================================================================*/
+.embed {
+	// width: 600px;
+	max-width: 100%;
+}
+.embed-inner {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100% !important;
+		//height: 100%;
+	}
+}
+
+
+/*=== Frame
+==============================================================================================*/
+.alert {
+	zoom: 1;
+	border-width: 1px;
+	border-style: solid;
+	padding: 10px;
+	margin-bottom: 15px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+	@include border-radius(4px);
+	@include pie;
+
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	strong {
+		color: inherit;
+	}
+}
+
+.alert-success {
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	color: #468847;
+}
+.alert-error {
+	background-color: #f2dede;
+	border-color: #edd3d7;
+	color: #b94a48;
+}
+.alert-info {
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+	color: #3a87ad;
+}
+
+
+/*=== Well
+==============================================================================================*/
+.well {
+	@extend .clear-after;
+
+	display: block;
+	position: relative;
+	padding: 15px;
+	margin-bottom: 15px;
+	background: #f7f7f7;
+
+	@include border-radius(4px);
+	@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .3));
+	@include pie;
+}
+
+
+/*=== CTA Button
+==============================================================================================*/
+a.cta {
+	display: block;
+	width: auto;
+	margin-bottom: 20px;
+	padding: 6px 10px;
+	@include border-radius(4px);
+	@include box-shadow(
+		0 1px 2px rgba(0, 0, 0, .2),
+		inset 0 1px 2px rgba(255, 255, 255, .4)
+	);
+	@include transition(box-shadow .2s, background .2s);
+	@include pie;
+
+	&:hover {
+		@include box-shadow(
+			0 1px 2px rgba(0, 0, 0, .4),
+			inset 0 1px 2px rgba(255, 255, 255, .4)
+		);
+	}
+	.icon {
+		color: #fff;
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+		border: 0;
+		font-size: 1.667em;
+		@include box-shadow(none);
+		@include pie;
+	}
+	.icon-big:before { vertical-align: -.2ex; }
+}
+
+
+/*=== Button
+==============================================================================================*/
+.btn {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	*margin-left: .3em;
+    background-repeat: repeat-x;
+	border-width: 1px;
+	border-style: solid;
+	font-size: 13px;
+	line-height: 26px;
+	text-align: center;
+	text-shadow: none;
+	vertical-align: middle;
+	cursor: pointer;
+	outline: 0;
+	@include box-shadow(0 1px 1px rgba(0, 0, 0, .15));
+	-pie-box-shadow: none !important;
+	@include border-radius(3px);
+	@include transition(border .2s, box-shadow .2s);
+	// @include pie;
+
+	&:first-child { *margin-left: 0; }
+
+	&:hover,
+	&.hover {
+		text-decoration: none;
+		@include box-shadow(0 1px 1px rgba(0, 0, 0, .25));
+	}
+
+	&:active,
+	&.active {
+		@include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .15));
+	}
+
+	&.disabled,
+	&[disabled] {
+		&:hover,
+		&:active {
+			cursor: default;
+			background-image: none;
+			background-color: #e6e6e6;
+			border-color: #ccc;
+			color: #555;
+			@include opacity(0.65);
+			@include box-shadow(none);
+		}
+	}
+}
+
+/*	Button coloring
+-----------------------------------------------*/
+.btn {
+ 	@include btn-coloring(#555, #fafafa, up, 10);
+
+	&:hover,
+	&.hover {
+		@include btn-coloring(#555, #fafafa, hover, 15);
+	}
+	&:active {
+		@include btn-coloring(#555, #fafafa, active, 15);
+	}
+	&.active {
+		@extend .btn-blue:active;
+	}
+}
+
+.btn-blue {
+	@include normal-btn(#fff, $main);
+}
+
+/*	Button sizing
+-----------------------------------------------*/
+.btn-large {
+	padding: 10px 30px;
+	font-size: 15px;
+	line-height: normal;
+}
+.btn-small {
+	padding: 5px 9px;
+	font-size: 11px;
+	line-height: 16px;
+}
+.btn-mini {
+	padding: 2px 6px;
+	font-size: 11px;
+	line-height: 14px;
+}
+.btn-cta {
+	display: block;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/*	Fix
+-----------------------------------------------*/
+button.btn {
+	*padding-top: 2px;
+	*padding-bottom: 2px;
+
+	&::-moz-focus-inner {
+		padding: 0;
+		border: 0;
+	}
+	&.btn-large {
+		*padding-top: 7px;
+		*padding-bottom: 7px;
+	}
+	&.btn-small {
+		*padding-top: 3px;
+		*padding-bottom: 3px;
+	}
+	&.btn-mini {
+		*padding-top: 1px;
+		*padding-bottom: 1px;
+	}
+}
+
+
+/*=== Social Share Links
+==============================================================================================*/
+.social-share {
+	@extend .clear-after;
+
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		float: left;
+		margin-right: 10px;
+	}
+	.link {
+		padding: 3px 6px;
+		line-height: 27px;
+		color: #666;
+		font-weight: bold;
+		font-size: 13px;
+		text-transform: uppercase;
+		text-shadow: #fff 0 1px 0;
+		border-width: 1px;
+		border-style: solid;
+		border-color: #e3e3e3 #d2d2d2 #afafaf #d2d2d2;
+		@include background(#f4f4f4 linear-gradient(#f8f8f8, #f0f0f0));
+		@include border-radius(3px);
+		@include box-shadow(0 1px 1px rgba(0, 0, 0, .1), inset 0 1px 0 #fff);
+		-pie-box-shadow: none;
+		@include pie;
+
+		&:hover {
+			color: #3d3d3d;
+		}
+
+		&:before {
+			@extend %icon;
+
+			font-size: 1.667em;
+			vertical-align: -.15ex;
+		}
+
+	}
+
+	.twitter .link:before { content: "T"; }
+	.facebook .link:before { content: "6"; }
+	.gplus .link:before { content: "1"; }
+	.hatena .link:before { content: "\a1"; }
+	.evernote .link:before { content: "n"; }
+
+	.counter {
+		position: relative;
+		padding: 3px 6px;
+		line-height: 27px;
+		margin-left: 3px;
+		color: #fff;
+		text-shadow: #000 0 -1px 0;
+		border-width: 1px;
+		border-style: solid;
+		border-color: #020202 #090909 #030303 #161616;
+		@include background(#3e3f40 linear-gradient(#4a4b4d, #343536));
+		@include border-radius(3px);
+		@include box-shadow(
+			0 1px 1px rgba(0, 0, 0, .1),
+			inset 0 1px 0 rgba(255, 255, 255, .15)
+		);
+		-pie-box-shadow: none;
+		@include pie;
+
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 50%;
+			left: -8px;
+			margin-top: -4px;
+			border: 4px solid transparent;
+			border-right-color: #3e3f40;
+			z-index: 2;
+		}
+		&:after {
+			left: -12px;
+			margin-top: -6px;
+			border-width: 6px;
+			border-right-color: #161616;
+			z-index: 1;
+		}
+	}
+}
+
+
+/*=== Fancy Thumb
+==============================================================================================*/
+.fancy-thumb {
+	display: block;
+	position: relative;
+	padding: 6px;
+	background: #fbfbfb url(images/patterns/noise-2.png);
+
+	@include box-shadow(0 1px 3px rgba(0, 0, 0, .5));
+	-pie-box-shadow: 0 0 0 1px rgba(0, 0, 0, .15);
+	@include transition(background-color .2s);
+	@include pie;
+
+	@include respond(480px) {
+		padding: 4px;
+	}
+	@include retina {
+		background-image: url(images/patterns/noise-2@2x.png);
+		@include background-size(200px 200px);
+	}
+
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 17px;
+		left: 5px;
+		width: 50%;
+		height: 20%;
+		max-width: 300px;
+		max-height: 100px;
+		z-index: -1;
+		@include box-shadow(0 15px 10px rgba(0, 0, 0, .5));
+		@include transform(rotate(-3deg));
+	}
+	&:after {
+		right: 5px;
+		left: auto;
+		@include transform(rotate(3deg));
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		@include border-radius(0);
+	}
+
+	.caption {
+		position: relative;
+		overflow: hidden;
+
+		img {
+			@include transform(scale(1));
+			@include transition(all .3s);
+		}
+	}
+
+	.caption-title {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 90%;
+		height: 80%;
+		padding: 10% 5%;
+		margin: 0;
+		background: $black;
+		background: rgba(0, 0, 0, .3);
+		color: #fff;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 14px;
+		line-height: 1.4;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, .7);
+		@include opacity(0);
+		@include transition(opacity .3s);
+
+		&:before {
+			content: "";
+			display: block;
+			height: 1px;
+			background: #fff;
+			width: 40%;
+			margin: 0 auto 10px;
+		}
+	}
+
+	&:hover{
+		.caption-title {
+			opacity: 1;
+		}
+		.caption img {
+			@include transform(scale(1.1));
+			@include filter(blur(3px));
+		}
+	}
+}
+
+
+/*=== Example
+==============================================================================================*/
+.example {
+	background: #fff;
+	border: 1px solid #d2d2d2;
+	margin: 1em 0 10px;
+	padding: 39px 19px 14px;
+	position: relative;
+	@include border-radius(4px);
+	@include pie;
+
+	&:after {
+		content: "Example";
+		content: "Example #" counter(example);
+		counter-increment: example;
+		position: absolute;
+		left: -1px;
+		top: -1px;
+		padding: 5px 10px;
+		background: #f5f5f5;
+		border: 1px solid #d2d2d2;
+		color: #aaa;
+		font-size: 13px;
+		font-weight: bold;
+		text-transform: uppercase;
+		line-height: 1;
+		text-shadow: 0 1px 0 #fff;
+		@include border-radius(4px 0 4px 0);
+	}
+	+ pre {
+		margin-top: -11px;
+	}
+}

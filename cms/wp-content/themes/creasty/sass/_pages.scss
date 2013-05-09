@@ -1,0 +1,598 @@
+
+/*=== Fonts
+==============================================================================================*/
+@include font-face(
+	"caflisch-script-pro",
+	font-files(
+		"CaflischScriptPro/caflischscriptpro-regular.woff",
+		"CaflischScriptPro/caflischscriptpro-regular.ttf",
+		"CaflischScriptPro/caflischscriptpro-regular.svg"
+	),
+	"CaflischScriptPro/caflischscriptpro-regular.eot"
+);
+@include font-face(
+	"proxima-nova",
+	font-files(
+		"ProximaNova/proximanova-semibold.woff",
+		"ProximaNova/proximanova-semibold.ttf",
+		"ProximaNova/proximanova-semibold.svg"
+	),
+	"ProximaNova/proximanova-semibold.eot",
+	600
+);
+
+
+/*=== Template: Side Nav
+==============================================================================================*/
+.tpl-sidenav {
+	#side-nav {
+		background: #eff1f2;
+
+		h3 {
+			color: #7f888b;
+			font-size: 1.167em;
+			padding: 20px 20px 0px;
+
+			span {
+				color: #7f888b;
+			}
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 10px 20px;
+		}
+		li {
+			margin: 0;
+			padding: 0;
+			color: #7f888b;
+			border-top: 1px solid #d5d8da;
+		}
+		a {
+			display: block;
+			width: auto;
+			padding: 10px 0;
+		}
+		.icon:before {
+			font-size: 1em;
+			vertical-align: .1ex;
+		}
+	}
+}
+
+
+/*=== 404
+==============================================================================================*/
+#page-404 .content i.icon-alert {
+	&, &:before{
+		font-size: 150px;
+		color: #edc72e;
+		display: block;
+		width: 100%;
+	}
+}
+
+
+/*=== Blog
+==============================================================================================*/
+.type-post {
+	#side-nav {
+		ul {
+			margin: 0 0 20px;
+			padding: 0;
+			text-shadow: 0 1px 0 #fff;
+			list-style: none;
+
+			a {
+				font-weight: normal;
+				color: #888;
+				padding: 8px 0;
+				display: block;
+				width: auto;
+
+				&:hover {
+					color: #5f9baf;
+				}
+			}
+		}
+		li,
+		h3 {
+			border-bottom: 1px solid #d7d7d7;
+			border-bottom: 1px solid rgba(0, 0, 0, .1);
+			@include box-shadow(0 1px 0 #fff);
+		}
+		li {
+			margin: 0;
+			padding: 0;
+		}
+		h3 {
+			margin: 0;
+			padding: 6px 0;
+			font-size: 1.417em;
+			color: #3d3d3d;
+			text-shadow: 0 1px 0 #fff;
+
+			a.label {
+				bottom: -1.5ex;
+				@include box-shadow(0 1px 0 rgba(#fff, .7));
+			}
+		}
+
+		@include respond(768px) {
+			aside {
+				padding: 0 10px;
+			}
+		}
+
+		/*	cta button
+		-----------------------------------------------*/
+		.follow .btn {
+			margin-bottom: 10px;
+			font-weight: bold;
+			text-transform: uppercase;
+
+			&:before {
+				font-size: 18px;
+				vertical-align: -2px;
+			}
+		}
+
+		.btn-rss {
+			@include normal-btn(#fff, #e57801);
+		}
+		.btn-twitter {
+			@include normal-btn(#fff, #00acee);
+		}
+		.btn-facebook {
+			@include normal-btn(#fff, #3b5998);
+		}
+
+		/*	Search
+		-----------------------------------------------*/
+		.search form {
+			margin: 10px 0 20px;
+
+			input {
+				width: 71%;
+			}
+			button {
+				width: 20%;
+			}
+		}
+
+		/*	Facebook
+		-----------------------------------------------*/
+		.facebook iframe {
+			margin-top: -1px;
+			margin-bottom: 5px;
+		}
+
+		/*	Twitter
+		-----------------------------------------------*/
+		#twitter-status {
+			li {
+				padding: 8px 0 !important;
+			}
+			a {
+				display: inline !important;
+				padding: 0;
+			}
+		}
+	}
+
+	@include respond(320px) {
+		.content #hero img {
+			width: 150% !important;
+			margin: 0 -25%;
+		}
+	}
+}
+
+.post-header {
+	.flush-lr img {
+		@include border-radius(0);
+	}
+	@include respond(320px) {
+		// Make Eye-chatch Bigger
+		.flush-lr {
+			overflow: hidden;
+		}
+		.flush-lr img {
+			max-width: none !important;
+			width: 150% !important;
+			margin: 0 -25%;
+		}
+	}
+
+	ul.tiny {
+		margin-top: 1.5em;
+	}
+	#main & ul.tiny {
+		margin-top: -10px;
+		padding-bottom: 1em;
+	}
+
+	+ h3 {
+		margin-top: 0;
+	}
+}
+
+.post-footer {
+	clear: both;
+}
+
+.page-entries {
+	@include respond(320px) {
+		.post-excerpt {
+			display: none;
+		}
+	}
+}
+
+/*	DISQUS
+-----------------------------------------------*/
+#dsq-reply h3,
+#dsq-sort-by,
+#dsq-footer {
+	display: none;
+}
+#dsq-global-toolbar {
+	margin-top: 0;
+}
+#dsq-content {
+	position: relative;
+}
+
+
+/*=== Home
+==============================================================================================*/
+#page-home {
+	/*	Hero
+	-----------------------------------------------*/
+	#home-hero {
+		position: relative;
+		margin-top: -30px;
+		cursor: default;
+
+		.container {
+			padding-top: 215px;
+			padding-bottom: 165px;
+			text-align: center;
+			z-index: 2;
+
+			@include respond(768px) {
+				padding-top: 10em;
+				padding-bottom: 8em;
+
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+
+	#fader {
+		position: absolute;
+		top: 0;
+		background: #3d3d3d;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+	}
+
+	h2 {
+		padding: 0 10px;
+		margin: 0;
+		text-shadow: none;
+		//white-space: nowrap;
+
+		> span {
+			display: block;
+			font: 600 60px/1.2 "proxima-nova";
+			color: #fff;
+			letter-spacing: .08em;
+			text-transform: uppercase;
+
+			&:before {
+				content: "";
+				display: block;
+				height: 5px;
+				width: 300px;
+				background: #fff;
+				margin: 0 auto .5em;
+
+				@include respond(768px) {
+					width: 40%;
+				}
+			}
+		}
+
+		em {
+			display: block;
+			font: 36px/1.3 "caflisch-script-pro";
+			color: #fff;
+			letter-spacing: -.01em;
+
+			&:after {
+				content: "S S S";
+				display: block;
+				position: relative;
+				font: normal .47em/1 "CreastyPicto";
+				color: #fff;
+				text-shadow: none;
+				word-spacing: 1px;
+				width: 5em;
+				margin: 1.5em auto 0;
+			}
+		}
+	}
+
+	/*	Service
+	-----------------------------------------------*/
+	#service {
+		background: rgba(#000, .04);
+		margin-bottom: 30px;
+		@include box-shadow(
+			0 1px 0 rgba(#000, .1),
+			inset 0 1px 0 rgba(#fff, .4),
+			0 -1px 0 rgba(#fff, .1),
+			inset 0 -1px 0 rgba(#fff, .4)
+		);
+
+		.container {
+			padding: 30px 0;
+		}
+		.content {
+			margin-bottom: 0;
+			text-align: center;
+		}
+	}
+
+	/*	Grid Layout
+	-----------------------------------------------*/
+	.home-grid {
+		list-style: none;
+		position: relative;
+		margin: 20px 0 30px;
+		padding: 0;
+		zoom: 1;
+
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		li {
+			position: relative;
+			float: left;
+			padding: 0;
+			height: auto;
+		}
+	}
+
+	/*	Twitter
+	-----------------------------------------------*/
+	#twitter-status {
+		list-style: none;
+		margin: 0 0 1em;
+		padding: 0;
+
+		li {
+			margin-bottom: 1em;
+			padding: 0;
+			word-wrap: break-word;
+			word-break: break-all;
+
+			a.tweet-time {
+				color: #aaa;
+				float: right;
+
+				&:hover {
+					color: #5f9baf;
+				}
+			}
+
+			&.tweet-data-0 {
+				margin-bottom: 1em;
+				width: auto;
+				padding: 20px 10%;
+				text-align: center;
+				display: block;
+				float: none;
+
+				span {
+					font-size: 2em;
+					line-height: 1.1em;
+
+					@include respond(320px) {
+						font-size: 1em;
+						line-height: 1;
+					}
+				}
+				a.tweet-time {
+					display: block;
+					margin-top: 1em;
+					font-size: 1em;
+					float: none;
+
+					@include respond(320px) {
+						display: inline;
+						float: right;
+					}
+				}
+
+				@include respond(320px) {
+					padding: 0 0 1em;
+					margin-bottom: 0;
+					text-align: left;
+				}
+			}
+		}
+	}
+}
+
+
+/*=== Works
+==============================================================================================*/
+#works {
+	@extend .clear-after;
+
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	.showcase-item {
+		position: relative;
+		float: left;
+		padding: 0;
+		cursor: pointer;
+
+		&.open .fancy-thumb {
+			background-color: $black;
+		}
+	}
+
+	.grid-clear {
+		padding: 0;
+		margin: 0 -10px;
+	}
+
+	.dyn-slider {
+		margin: 0;
+	}
+}
+
+#showcase-panel {
+	display: none;
+	overflow: hidden;
+	margin: 0 0 49px;
+	font-size: .929em; // .content-box is inside .content-ground
+}
+#showcase-panel-content.loading {
+	height: 100px;
+	background: url(images/icons/loading_f_5f9baf.gif) 50% 50% no-repeat;
+}
+
+#showcase-arrow {
+	display: none;
+	position: absolute;
+	z-index: 1;
+}
+#showcase-arrow:after {
+	content: "";
+	@include arrow(top, 16px, #fff, 0, 8px);
+}
+#showcase-arrow:before {
+	content: "";
+	@include arrow(top, 17px, rgba(#000, .15), 0, 5px);
+	border-bottom-color: #ccc\9;
+}
+
+
+/*=== Page: Service
+==============================================================================================*/
+#page-service #workflow {
+	list-style: none;
+	margin-left: 0;
+	padding: 0;
+
+	li {
+		text-align: center;
+
+		@include respond(520px) {
+			text-align: left;
+		}
+	}
+
+	i {
+		display: block;
+		width: 100%;
+		height: 100px;
+		text-align: center;
+
+		&:before {
+			display: block;
+			font-size: 100px;
+			width: 100%;
+			height: 100px;
+			line-height: 105px;
+			color: $main;
+		}
+		&.icon-code:before {
+			content: "{ }";
+			font-family: "Open Sans", Arial, Helvetica;
+			font-weight: bold !important;
+			font-size: 80px;
+		}
+	}
+
+	h4 {
+		margin-top: 10px;
+
+		span {
+			color: $main;
+		}
+	}
+}
+
+
+/*=== Page: About
+==============================================================================================*/
+#page-about #iamcrazy {
+	background: url(/images/about/yuki.jpg) 50% 0 no-repeat;
+	height: 570px;
+	margin-bottom: 20px;
+
+	h3 {
+		color: $sub;
+		font: 600 70px/1.2 "proxima-nova";
+		letter-spacing: .15em;
+		text-align: center;
+		text-transform: uppercase;
+		text-shadow: none;
+		opacity: .5;
+		padding-top: 180px;
+
+		@include respond(570px) {
+			padding: 2.7em 0 2.3em;
+		}
+	}
+
+	@include respond(570px) {
+		@include background-size(contain !important);
+		height: auto;
+	}
+	@include retina {
+		background-image: url(/images/about/yuki@2x.jpg);
+		@include background-size(504px 570px);
+	}
+}
+
+
+/*=== Page: Contact
+==============================================================================================*/
+#page-contact {
+	form .alert {
+		margin-top: 2em;
+	}
+
+	#thank-you h3 {
+		font: 110px "caflisch-script-pro";
+		text-align: center;
+		color: #5f9baf;
+		margin: 0;
+
+		&:before {
+			content: 'M';
+			color: #888;
+			font-size: 80px !important;
+			display: block;
+			width: 100%;
+			height: 1em;
+			font: normal 1em/1 "CreastyPicto";
+			padding: 20px 0 0;
+		}
+	}
+}
