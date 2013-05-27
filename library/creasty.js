@@ -103,16 +103,19 @@ require.define({
 	syntax: [
 		'~m/Syntax/rainbow.css',
 		'~m/Syntax/rainbow.min.js',
-		'~m/Syntax/language/generic.js',
-		'~m/Syntax/language/php.js',
-		//'~m/Syntax/language/ruby.js',
-		'~m/Syntax/language/javascript.js',
-		//'~m/Syntax/language/coffeescript.js',
-		'~m/Syntax/language/css.js',
-		'~m/Syntax/language/html.js',
 		function (silent) {
-			silent || $(function () {
-				Rainbow.color();
+			require(
+				'~m/Syntax/language/generic.js',
+				'~m/Syntax/language/php.js',
+				'~m/Syntax/language/ruby.js',
+				'~m/Syntax/language/javascript.js',
+				'~m/Syntax/language/coffeescript.js',
+				'~m/Syntax/language/css.js',
+				'~m/Syntax/language/html.js'
+			).done(function () {
+				silent || $(function () {
+					Rainbow.color();
+				});
 			});
 		}
 	],
