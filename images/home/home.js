@@ -24,23 +24,11 @@ require('module.jquery.fitText', '!ready').done(function () {
 	.fitText(3.055, { minFontSize: 24 });
 });
 
-require('module.jquery.fluidGrid', 'module.jquery.tweet', '!ready').done(function () {
+require('module.jquery.fluidGrid', '!ready').done(function () {
 	$('.home-grid').fluidGrid({
 		columns: 4,
 		gutter: 20,
 		minWidth: 200
-	});
-	$('#twitter-status').tweet({
-		username: 'builtlast',
-		count: 5,
-		done: function ($elem) {
-			$elem.fluidGrid({
-				columns: 4,
-				gutter: 20,
-				minWidth: 200,
-				exclude: ':first-child'
-			});
-		}
 	});
 });
 

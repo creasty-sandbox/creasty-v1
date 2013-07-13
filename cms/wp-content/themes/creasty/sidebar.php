@@ -65,15 +65,3 @@
 				<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fcreasty.web&amp;width=270&amp;height=258&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color=%23d7d7d7&amp;header=false&amp;appId=423468787678045" scrolling="no" frameborder="0" style="border:0; overflow:hidden; width:100%; height:258px;" allowTransparency="true"></iframe>
 			</div>
 		</aside>
-		<aside>
-			<h3 class="icon-twitter">Twitter <a href="http://twitter.com/<?php echo get_option('twitter'); ?>" target="_blank" class="more label">Follow</a></h3>
-			<ul id="twitter-status"></ul>
-			<script>
-				require('module.jquery.tweet').done(function(){
-					$('#twitter-status').tweet({
-						username: '<?php echo get_option('twitter'); ?>',
-						count: 5
-					});
-				});
-			</script>
-		</aside>

@@ -106,9 +106,5 @@ get_header();
 ?>
 		</ul>
 	<!--/ .content --></section>
-	<section class="content content-ground">
-		<h3 class="ribbon"><a href="http://twitter.com/builtlast" target="_blank">Tweets</a></h3>
-		<ul id="twitter-status" class="compact"></ul>
-	<!--/ .content --></section>
 <!--/ .container --></div>
 <?php get_footer(); ?>
